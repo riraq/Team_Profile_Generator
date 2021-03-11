@@ -1,9 +1,9 @@
 const Employee = require('../lib/employee.js');
-const Engineer = require('../lib/engineer');
+const Engineer = require('../lib/engineer.js');
 
 describe('Engineer', () => {
     describe('Engineer constructor', () => {
-        it('should return an object property containing the value of the employee name, id, email, and office number', () => {
+        it('should return an object property containing the value of the employee name, id, email, and github', () => {
             const employeeName = 'Rony';
             const employeeID = '001';
             const employeeEmail = 'rony@rony.com';
@@ -36,7 +36,7 @@ describe('Engineer', () => {
             const employeeID = '';
             const employeeEmail = '';
             const employeeGitHub = 'riraq'
-            
+
             const obj = new Engineer(employeeName, employeeID, employeeEmail, employeeGitHub);
 
             expect(obj.getRole()).toEqual(returnEngineer);
