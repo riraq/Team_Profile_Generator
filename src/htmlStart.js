@@ -25,20 +25,20 @@ function htmlManager(employeeInfo){
     const managerData = `
     <h2>${employeeInfo.name}</h2>
     <h2>Manager</h2>
-    <h2>${employeeInfo.id}</h2>
-    <h2>${employeeInfo.email}</h2>
-    <h2>${employeeInfo.officeNumber}</h2>
+    <h3>ID: ${employeeInfo.id}</h3>
+    <h3>Email: ${employeeInfo.email}</h3>
+    <h3>Office Number: ${employeeInfo.officeNumber}</h3>
     `;
     htmlGenerated.push(managerData)
 };
 
 function htmlEngineer(employeeInfo){
     const engineerData = `
-    <h2>${employeeInfo.name}</h2>
-    <h2>Engineer</h2>
-    <h2>${employeeInfo.id}</h2>
-    <h2>${employeeInfo.email}</h2>
-    <h2>${employeeInfo.gitHub}</h2>
+    <h3>${employeeInfo.name}</h3>
+    <h3>Engineer</h3>
+    <h3>ID: ${employeeInfo.id}</h3>
+    <h3>Email: ${employeeInfo.email}</h3>
+    <h3>GitHub: ${employeeInfo.gitHub}</h3>
     `;
     htmlGenerated.push(engineerData)
 
@@ -46,18 +46,16 @@ function htmlEngineer(employeeInfo){
 
 function htmlIntern(employeeInfo){
     const internData = `
-    <h2>${employeeInfo.name}</h2>
-    <h2>Intern</h2>
-    <h2>${employeeInfo.id}</h2>
-    <h2>${employeeInfo.email}</h2>
-    <h2>${employeeInfo.school}</h2>
+    <h3>${employeeInfo.name}</h3>
+    <h3>Intern</h3>
+    <h3>ID: ${employeeInfo.id}</h3>
+    <h3>Email: ${employeeInfo.email}</h3>
+    <h3>School: ${employeeInfo.school}</h3>
     `;
     htmlGenerated.push(internData)
 };
 
 function generateHTML(employeeData) {
-    console.log('employeeData:  ', employeeData)
-    console.log('employeeData length:  ', employeeData.length)
     const htmlPromise = new Promise((resolve, reject) => {
         if (employeeData) {
             resolve(employeeData)
@@ -76,8 +74,6 @@ function generateHTML(employeeData) {
         .then((response) => {
             for (let i = 0; i < response.length; i++) {
                 if (response[i].hasOwnProperty('officeNumber')) {
-                    console.log("This is the iteration for htmlManager", i)
-                    console.log("This is the response for htmlManager", response[i])
                     htmlManager(response[i]);
                 }
             }
@@ -87,8 +83,6 @@ function generateHTML(employeeData) {
         .then((response) => {
             for (let i = 0; i < response.length; i++) {
                 if (response[i].hasOwnProperty('gitHub')) {
-                    console.log("This is the iteration for htmlEngineer", i)
-                    console.log("This is the response for htmlEngineer", response[i])
                     htmlEngineer(response[i]);
                 }
             }
@@ -98,8 +92,6 @@ function generateHTML(employeeData) {
         .then((response) => {
             for (let i = 0; i < response.length; i++) {
             if (response[i].hasOwnProperty('school')) {
-                    console.log("This is the iteration for htmlIntern", i)
-                    console.log("This is the response for htmlIntern", response[i])
                     htmlIntern(response[i]);
                 }
             }
@@ -109,15 +101,12 @@ function generateHTML(employeeData) {
 
         .then((response) => {
             htmlGenerated.push(htmlEnd);
-            console.log("Almost made it to the end!", response)
             return response;
         })
 
         .then((response) => {
-            // console.log("the final step before it works:  ", htmlGenerated)
-            // console.log("the final step before it works:  ", htmlGenerated[0])
             fs.writeFile('./dist/index.html', htmlGenerated.join(''), (err) => {
-                err ? console.error(err) : console.log('htmlEnd logged!')
+                err ? console.error(err) : console.log('Your Team Profile has been created!')
             });
             return response;
         })
