@@ -14,44 +14,66 @@ const htmlStart = `<!DOCTYPE html>
     <link href="./style.css" rel="stylesheet">
     <title>Team Profile</title>
 </head>
-<body>`;
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <h1 class="ms-auto me-auto p-4">My Team</h1>
+    </nav>
+    <div class="container">
+        <div class="row row-cols-auto">   
+    `;
 
 const htmlEnd = `
-    <script type="text/javascript" src="../lib/writeToDoc.js"></script>
+        </div>    
+    </div>
 </body>
 </html>`;
 
-function htmlManager(employeeInfo){
+function htmlManager(employeeInfo) {
     const managerData = `
-    <h2>${employeeInfo.name}</h2>
-    <h2>Manager</h2>
-    <h3>ID: ${employeeInfo.id}</h3>
-    <h3>Email: ${employeeInfo.email}</h3>
-    <h3>Office Number: ${employeeInfo.officeNumber}</h3>
-    `;
+    <div class="card m-3 mx-auto col" style="width: 18rem;">  
+        <h3 class="card-header">
+            ${employeeInfo.name}
+        </h3>
+        <div class="card-body">
+            <h4 class="card-title">Manager</h4>
+            <p class="card-text">ID: ${employeeInfo.id}</p>
+            <p>Email: <a href="mailto:${employeeInfo.email}">${employeeInfo.email}</a></p>
+            <p>Office Number: ${employeeInfo.officeNumber}</p>
+        </div>
+    </div>`;
     htmlGenerated.push(managerData)
 };
 
-function htmlEngineer(employeeInfo){
+function htmlEngineer(employeeInfo) {
     const engineerData = `
-    <h3>${employeeInfo.name}</h3>
-    <h3>Engineer</h3>
-    <h3>ID: ${employeeInfo.id}</h3>
-    <h3>Email: ${employeeInfo.email}</h3>
-    <h3>GitHub: ${employeeInfo.gitHub}</h3>
-    `;
+    <div class="card m-3 mx-auto col" style="width: 18rem;">  
+        <h3 class="card-header">
+            ${employeeInfo.name}
+        </h3>
+        <div class="card-body">
+            <h4 class="card-title">Engineer</h4>
+        <p class="card-text">ID: ${employeeInfo.id}</p>
+        <p>Email: <a href="mailto:${employeeInfo.email}">${employeeInfo.email}</a></p>
+        <p>GitHub: <a href="mailto:${employeeInfo.gitHub}">https://github.com/${employeeInfo.gitHub}</a></p>
+    </div>
+</div>`;
     htmlGenerated.push(engineerData)
 
 };
 
-function htmlIntern(employeeInfo){
+function htmlIntern(employeeInfo) {
     const internData = `
-    <h3>${employeeInfo.name}</h3>
-    <h3>Intern</h3>
-    <h3>ID: ${employeeInfo.id}</h3>
-    <h3>Email: ${employeeInfo.email}</h3>
-    <h3>School: ${employeeInfo.school}</h3>
-    `;
+    <div class="card m-3 mx-auto col" style="width: 18rem;">  
+        <h3 class="card-header">
+            ${employeeInfo.name}
+        </h3>
+        <div class="card-body">
+            <h4 class="card-title">Intern</h4>
+        <p class="card-text">ID: ${employeeInfo.id}</p>
+            <p>Email: <a href="mailto:${employeeInfo.email}">${employeeInfo.email}</a></p>
+            <p>School: ${employeeInfo.school}</p>
+        </div>
+    </div>`;
     htmlGenerated.push(internData)
 };
 
