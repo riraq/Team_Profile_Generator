@@ -11,8 +11,6 @@ App that generates a team profile html file that uses Node.js, with the Inquirer
 Four tests are provided for each of the classes of employee. In order to run it, Jest is needed and can be done from the command console while using Node.js. 
 ## Function
 The application functions by running index.js in the command line. This brings up several prompts for the user to answer, with all of them being free text inputs. The first set of prompts sets up the manager for the team and then a choice is provided at the end to allow an engineer, intern or finish adding to team. If an engineer or intern is added, more prompts are provided in order to generate that team member. If finish adding to team is chosen, then the application ends and generates the HTML file based on the user inputs into the dist folder. When the file is opened in a web browser, a styled page is displayed with the team.
-## Live Link
-https://riraq.github.io/Team_Profile_Generator/
 ## Video Demo
 ### Walkthrough
 ![Video Demo](./assets/walkthrough.gif)
