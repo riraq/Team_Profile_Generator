@@ -14,10 +14,9 @@ The application functions by running index.js in the command line. This brings u
 ## Live Link
 https://riraq.github.io/Team_Profile_Generator/
 ## Video Demo
-### Generating the HTML
-![Video Demo](./assets/htmlGenerate.gif)
-### Running Tests
-![Video Demo](./assets/tests.gif)
+### Walkthrough
+![Video Demo](./assets/walkthrough.gif)
+Direct Link - https://github.com/riraq/Team_Profile_Generator/blob/main/assets/walkthrough.gif
 ## Screenshots
 ### User Input 
 ![User Input](./assets/prompt.jpg)

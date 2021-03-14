@@ -54,7 +54,7 @@ function htmlEngineer(employeeInfo) {
             <h4 class="card-title">Engineer</h4>
         <p class="card-text">ID: ${employeeInfo.id}</p>
         <p>Email: <a href="mailto:${employeeInfo.email}">${employeeInfo.email}</a></p>
-        <p>GitHub: <a href="mailto:${employeeInfo.gitHub}">https://github.com/${employeeInfo.gitHub}</a></p>
+        <p>GitHub: <a href="https://github.com/${employeeInfo.gitHub}">https://github.com/${employeeInfo.gitHub}</a></p>
     </div>
 </div>`;
     htmlGenerated.push(engineerData)
